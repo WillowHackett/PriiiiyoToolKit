@@ -1,3 +1,4 @@
+import os
 try:
     from .ExecVars import ExecVars
 except:
@@ -21,10 +22,10 @@ except:
         GD_INDEX_URL = False
 
         # Time to wait before edit message
-        EDIT_SLEEP_SECS = 40
+        EDIT_SLEEP_SECS = 16
 
         # Telegram Upload Limit (in bytes)
-        TG_UP_LIMIT = 1700000000
+        TG_UP_LIMIT = 2000000000
 
         # Should force evething uploaded into Document
         FORCE_DOCUMENTS = False
@@ -36,10 +37,10 @@ except:
         REMAINING_STR = "▱"
 
         # DB URI for access
-        DB_URI = "dbname=tortk user=postgres password=your-pass host=127.0.0.1 port=5432"
+        DATABASE_URL = "dbname=tortk user=postgres password=your-pass host=127.0.0.1 port=5432"
         
         # UNCOMMENT THE BELOW LINE WHEN USING CONTAINER AND COMMENT THE UPPER LINE
-        #DB_URI = "dbname=tortk user=postgres password=your-pass host=db port=5432"
+        #DATABASE_URL = "dbname=tortk user=postgres password=your-pass host=db port=5432"
 
         # Use the central update (everything will be updated in one msg)
         CENTRAL_UPDATE = True

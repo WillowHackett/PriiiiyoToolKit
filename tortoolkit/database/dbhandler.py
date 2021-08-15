@@ -1,9 +1,9 @@
 from ..config.ExecVarsSample import ExecVars
 import os
 
-dburl = os.environ.get("DB_URI",None)
+dburl = os.environ.get("DATABASE_URL",None)
 if dburl is None:
-    dburl = ExecVars.DB_URI
+    dburl = ExecVars.DATABASE_URL
 
 from .upload_db import TtkUpload
 

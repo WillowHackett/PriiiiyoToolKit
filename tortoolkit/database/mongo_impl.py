@@ -6,9 +6,9 @@ class TorToolkitDB(MongoDB):
     def __init__(self,dburl=None):
         # *** QUERIES ***
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
 
@@ -76,9 +76,9 @@ class UserDB(MongoDB):
     shared_users = {}
     def __init__(self,dburl=None):
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
 
@@ -230,9 +230,9 @@ class UserDB(MongoDB):
 class TtkTorrents(MongoDB):
     def __init__(self,dburl=None):
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
         

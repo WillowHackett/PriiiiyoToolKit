@@ -14,9 +14,9 @@ class TorToolkitDB(PostgresDB):
     def __init__(self,dburl=None):
         # *** QUERIES ***
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
 
@@ -108,9 +108,9 @@ class UserDB(PostgresDB):
     shared_users = {}
     def __init__(self,dburl=None):
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
         cur = self.scur()
@@ -287,9 +287,9 @@ class UserDB(PostgresDB):
 class TtkTorrents(PostgresDB):
     def __init__(self,dburl=None):
         if dburl is None:
-            dburl = os.environ.get("DB_URI",None)
+            dburl = os.environ.get("DATABASE_URL",None)
             if dburl is None:
-                dburl = ExecVars.DB_URI
+                dburl = ExecVars.DATABASE_URL
 
         super().__init__(dburl)
         cur = self.scur()
