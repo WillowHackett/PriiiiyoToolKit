@@ -53,7 +53,7 @@ async def progress_for_pyrogram(
         elapsed_time = human_readable_timedelta(elapsed_time)
         estimated_total_time = human_readable_timedelta(estimated_total_time)
 
-        progress = "[{0}{1}] \nP: {2}%\n".format(
+        progress = "\n╭─── ⌊__𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠...: [{2}%]  📤__⌉\n| \n├[{0}{1}]\n".format(
             "".join(
                 [get_val("COMPLETED_STR") for _ in range(math.floor(percentage / 10))]
             ),
@@ -68,13 +68,14 @@ async def progress_for_pyrogram(
 
         tmp = (
             progress
-            + "{0} of {1}\nSpeed: {2}/s\nETA: {3}\nUsing engine: Pyrogram".format(
+            +"│" + "\n├**𝐃𝐨𝐧𝐞 ✅ : **{0}\n├**𝐓𝐨𝐭𝐚𝐥 🗳 : **{1}\n├**𝐒𝐩𝐞𝐞𝐝** 🚀 : {2}/s 🔺\n├**𝐄𝐓𝐀** ⏳ : {3}".format(
                 human_readable_bytes(current),
                 human_readable_bytes(total),
                 human_readable_bytes(speed),
                 estimated_total_time if estimated_total_time != "" else "0 seconds",
             )
         )
+        tmp += "\n│"+"\n╰── ⌊ ⚡️ using engine pyrogram ⌉"
         try:
             if not message.photo:
                 await message.edit_text(
