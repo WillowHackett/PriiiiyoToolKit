@@ -38,7 +38,7 @@ async def progress(
             seconds=estimated_total_time / 1000
         )
 
-        progress = "[{0}{1}] \nP: {2}%\n".format(
+        progress = "\n╭─── ⌊__𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠...: [{2}%] 📤__⌉\n│ \n├[{0}{1}]\n".format(
             "".join(
                 [get_val("COMPLETED_STR") for i in range(math.floor(percentage / 10))]
             ),
@@ -51,13 +51,14 @@ async def progress(
             round(percentage, 2),
         )
 
-        tmp = progress + "{0} of {1}\nSpeed: {2}/s\nETA: {3}\nUsing engine: Telethon".format(
+        tmp = progress +"│" + "\n├**𝐃𝐨𝐧𝐞 ✅ : **{0}\n├**𝐓𝐨𝐭𝐚𝐥 🗳 : **{1}\n├**𝐒𝐩𝐞𝐞𝐝** 🚀 : {2}/s 🔺\n├**𝐄𝐓𝐀** ⏳ : {3}".format(
             human_readable_bytes(current),
             human_readable_bytes(total),
             human_readable_bytes(speed),
             # elapsed_time if elapsed_time != '' else "0 s",
             estimated_total_time if estimated_total_time != "" else "0 s",
         )
+        tmp += "\n│"+"\n╰── ⌊ ⚡️ Using Engine Telethon ⌉"
         try:
             if not message.photo:
                 await message.edit(
